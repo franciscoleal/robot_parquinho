@@ -1,0 +1,47 @@
+# This is a basic workflow to help you get started with Actions
+# Este é um fluxo de trabalho básico para o ajudar a começar a utilizar as Acções
+
+name: CI
+
+# Controls when the workflow will run
+# Controla quando o fluxo de trabalho será executado
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Acciona o fluxo de trabalho em eventos de push ou pull request, mas apenas para o ramo "principal"
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  # Permite-lhe executar este fluxo de trabalho manualmente a partir do separador Acções
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Uma execução de fluxo de trabalho é composta por uma ou mais tarefas que podem ser executadas sequencialmente ou em paralelo
+jobs:
+  # This workflow contains a single job called "build"
+  # Este fluxo de trabalho contém uma única tarefa denominada "construir"
+  build:
+    # The type of runner that the job will run on
+    # O tipo de executor em que o trabalho será executado
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    # As etapas representam uma sequência de tarefas que serão executadas como parte do trabalho
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Faz o check-out do seu repositório em $GITHUB_WORKSPACE, para que o seu trabalho possa aceder-lhe
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      # Executa um único comando utilizando a shell dos runners
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      # Executa um conjunto de comandos utilizando a shell dos runners
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
